@@ -5,8 +5,8 @@ import { firstNum, secondNum } from "./action/Action";
 
 const App = () => {
   const dispatch = useDispatch();
-  const myState = useSelector((state) => state.addTwoNum.first);
-  const newState = useSelector((state) => state.addTwoNum.second);
+  const myState = useSelector((state) => state.addTwoNum.total);
+  
   return (
     <div>
       <input
@@ -26,8 +26,7 @@ const App = () => {
           dispatch(secondNum(e.target.value));
         }}
        />
-      <input type='text' value={parseInt(myState)+parseInt(newState)}/>
-      
+      <input type='text' value={myState}/>
     </div>
   );
 };

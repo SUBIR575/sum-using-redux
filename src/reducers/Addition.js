@@ -7,25 +7,23 @@ const initialstate = {
 };
 
 const AddTwoNum = (state = initialstate, action) => {
-  console.log(action)
+  console.log(action);
   switch (action.type) {
     case FIRST_NUM:
-     const a = action.payload;
-     return{
-         ...state,
-         first:a
-     }
-      console.log(FIRST_NUM)
-      
+      state.first = Number(action.payload) || 0;
+      console.log(FIRST_NUM);
+      state.total = state.first + state.second;
+      return {
+        ...state,
+      };
+
     case SECOND_NUM:
-     const b = action.payload;
-     return{
-       ...state,
-       second:b
-     }
-      console.log(state.second)
-      
-       
+      state.second = Number(action.payload) || 0;
+      state.total = state.first + state.second;
+      return {
+        ...state,
+      };
+
     default:
       return state;
   }
